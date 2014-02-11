@@ -1,0 +1,38 @@
+ static void Main(string[] args)
+        {
+            int y = 0;
+            int x = 0;
+            int n;
+            int step;
+            Random RandomStep = new Random();
+            float Avgx =0, Avgy=0;
+            while (true)
+            {
+               
+                y = 0;
+                x = 0;
+                Console.WriteLine("Enter the number of steps: ");
+                n = Convert.ToInt32(Console.ReadLine());
+                for (int i = 0; i < n; i++)
+                {
+                    step = RandomStep.Next(1, 4);
+                    if (step == 1 && x > 0 && x <= 100)
+                        x++;
+                    else if (step == 2 && x > 0 && x <= 100)
+                        x--;
+                    else if (step == 3 && y > 0 && y <= 100)
+                        y--;
+                    else if (step == 4 && y > 0 && y <= 100)
+                        y++;
+                    else
+                        i--;
+                }
+                Avgx += x;
+                Avgy += y;
+                Avgx /= 100;
+                Avgy /= 100;
+
+                Console.WriteLine("Your average walk from side to side is: " + Avgx);
+                Console.WriteLine("Your average walk up and down is: " + Avgy);
+                Console.ReadKey();
+            }
